@@ -8,6 +8,9 @@ const Header = () => {
       <Link to="/social" className="ms-4">
         Social Login
       </Link>
+      <Link to="/user" className="ms-4">
+        User login
+      </Link>
     </div>
   );
 };

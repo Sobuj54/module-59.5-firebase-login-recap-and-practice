@@ -7,6 +7,7 @@ import Main from "./Components/Layout/Main.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Social from "./Components/Social/Social.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
+import User from "./Components/User/User.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/social",
         element: <Social></Social>,
+      },
+      {
+        path: "/user",
+        element: <User></User>,
       },
     ],
   },
