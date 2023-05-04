@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <div>
       <Link to="/">Home</Link>
-      <Link to="/social">Social Login</Link>
+      <Link to="/social" className="ms-4">
+        Social Login
+      </Link>
     </div>
   );
 };
