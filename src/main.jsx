@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./Components/Layout/Main.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Social from "./Components/Social/Social.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter([
   {
