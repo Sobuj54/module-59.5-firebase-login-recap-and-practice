@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import app from "../../firebase.config";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
@@ -10,6 +11,7 @@ import {
 const Social = () => {
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   const [user, setUser] = useState(null);
 
@@ -19,6 +21,18 @@ const Social = () => {
         const googleUser = result.user;
         console.log(googleUser);
         setUser(googleUser);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGitHubLogin = () => {
+    signInWithPopup(auth, gitHubProvider)
+      .then((result) => {
+        const githubUser = result.user;
+        console.log(githubUser);
+        setUser(githubUser);
       })
       .catch((error) => {
         console.log(error.message);
@@ -45,15 +59,23 @@ const Social = () => {
             Sign out
           </button>
         ) : (
-          <button onClick={handleGoogleLogIn} className="btn btn-primary me-4">
-            Login google
-          </button>
+          <div>
+            <button
+              onClick={handleGoogleLogIn}
+              className="btn btn-primary me-4">
+              Login google
+            </button>
+            <button onClick={handleGitHubLogin} className="btn btn-primary">
+              github login
+            </button>
+          </div>
         )}
       </div>
       {user && (
         <div className="mt-4">
           <h3>Name : {user.displayName}</h3>
           <h4>Email : {user.email}</h4>
+          <img src={user.photoURL} alt="" />
         </div>
       )}
     </div>
